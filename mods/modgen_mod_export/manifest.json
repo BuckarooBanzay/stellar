@@ -1,0 +1,13 @@
+{
+   "mapblock_count" : 1,
+   "metadata_count" : 0,
+   "mtime" : 1627396340,
+   "next_id" : 2,
+   "node_mapping" : {
+      "air" : 1,
+      "default:diamondblock" : 0
+   },
+   "size" : 70,
+   "uid" : "12c727f1-e27e-4019-8457-163ac46e2fda",
+   "version" : 2
+}
