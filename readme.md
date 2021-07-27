@@ -1,9 +1,8 @@
-Super sam adventure PoC
+Stellar adventure PoC
 
 ![](https://github.com/BuckarooBanzay/stellar/workflows/luacheck/badge.svg)
 ![](https://github.com/BuckarooBanzay/stellar/workflows/test/badge.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/buckaroobanzay/stellar)
-![Media size](https://byob.yarr.is/BuckarooBanzay/stellar/media_size)
 ![Modgen size](https://byob.yarr.is/BuckarooBanzay/stellar/size)
 ![Modgen mapblocks](https://byob.yarr.is/BuckarooBanzay/stellar/mapblock_count)
 ![Modgen nodecount](https://byob.yarr.is/BuckarooBanzay/stellar/node_count)
