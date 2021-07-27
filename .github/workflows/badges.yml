@@ -1,6 +1,9 @@
 name: badges
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   badge_job:
