@@ -10,3 +10,8 @@ Stellar adventure PoC
 [![Download](https://img.shields.io/badge/Download-ContentDB-blue.svg)](https://content.minetest.net/packages/BuckarooBanzay/stellar)
 
 State: **WIP**
+
+
+## License
+
+* `menu/icon.png?` CC-BY 3.0 https://game-icons.net/1x1/lorc/cross-flare.html
