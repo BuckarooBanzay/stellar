@@ -2,6 +2,8 @@
 minetest.register_entity("scene:entity", {
 	initial_properties = {},
 
+	static_save = false,
+
 	on_step = function(self, dtime)
 		-- sanity checks
 		if not self.data then
@@ -34,6 +36,7 @@ minetest.register_entity("scene:entity", {
 			return
 		end
 
+		-- TODO: event
 		return true
 	end,
 
@@ -43,13 +46,20 @@ minetest.register_entity("scene:entity", {
 			return
 		end
 
+		-- TODO: event
 	end,
 
 	get_staticdata = function(self)
+		print("scene:entity -> get_staticdata")
 		return minetest.serialize(self.data)
 	end,
 
+	on_deactivate = function()
+		print("scene:entity -> on_deactivate")
+	end,
+
 	on_activate = function(self, staticdata)
+		print("scene:entity -> on_activate")
 		self.data = minetest.deserialize(staticdata)
 
 		if not self.data then
