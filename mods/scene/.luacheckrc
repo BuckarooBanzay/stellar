@@ -11,6 +11,5 @@ read_globals = {
 	-- Minetest
 	"vector", "ItemStack",
 	"dump",
-	"minetest",
-	"font_api"
+	"minetest"
 }

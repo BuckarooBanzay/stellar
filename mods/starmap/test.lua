@@ -20,5 +20,9 @@ minetest.register_chatcommand("starmap", {
             automatic_rotate = 0.3,
             name = "Arrakis"
         })
+        map:add_text({x=-2, y=0, z=0}, {
+            text = "Space stuff",
+            color = "#0000FF"
+        })
     end
 })

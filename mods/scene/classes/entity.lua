@@ -36,12 +36,21 @@ function Entity:set_properties(properties)
     if not session_data then
         return false
     end
-    if session_data and session_data.entities then
-        local entity_session = session_data.entities[self.data.id]
-        if entity_session then
-            entity_session.properties = properties
-        end
+    local entity_session = session_data.entities[self.id]
+    if entity_session then
+        entity_session.properties = properties
     end
 end
 
--- TODO: Entity:dispose()
+function Entity:is_active()
+    local session_data = scene.get_session(self.session)
+    return session_data.entities[self.id] ~= nil
+end
+
+function Entity:dispose()
+    local session_data = scene.get_session(self.session)
+    if not session_data then
+        return false
+    end
+    session_data.entities[self.id] = nil
+end
