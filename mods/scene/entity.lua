@@ -40,7 +40,7 @@ minetest.register_entity("scene:entity", {
 		local session_data = scene.get_session(self.data.session)
 		if session_data and session_data.entities then
 			local entity_session = session_data.entities[self.data.id]
-			if type(entity_session.on_punch) == "function" then
+			if type(entity_session.on_rightclick) == "function" then
 				entity_session.on_rightclick(player)
 			end
 		end
