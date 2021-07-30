@@ -4,23 +4,10 @@ minetest.register_entity("scene:entity", {
 
 	static_save = false,
 
-	on_step = function(self, dtime)
+	on_step = function(self)
 		-- sanity checks
 		if not self.data then
 			self.object:remove()
-			return
-		end
-
-		if not self.dtime then
-			-- set dtime
-			self.dtime = dtime
-		else
-			-- increment
-			self.dtime = self.dtime + dtime
-		end
-
-		if self.dtime < 2 then
-			-- skip check
 			return
 		end
 
@@ -66,7 +53,7 @@ minetest.register_entity("scene:entity", {
 
 	on_deactivate = function(self)
 		-- close session if one of the entities is unloaded
-		scene.set_session(self.data.session, false)
+		scene.set_session(self.data.session, nil)
 	end,
 
 	on_activate = function(self, staticdata)

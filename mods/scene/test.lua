@@ -35,5 +35,10 @@ minetest.register_chatcommand("scene", {
                 nametag = "test"
             }
         })
+
+        s:add_text({
+            pos = { x=10, y=0, z=0 },
+            text = "Space things"
+        })
     end
 })

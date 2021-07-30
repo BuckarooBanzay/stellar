@@ -28,3 +28,9 @@
 [submodule "mods/scifi_nodes"]
 	path = mods/scifi_nodes
 	url = https://github.com/D00Med/scifi_nodes.git
+[submodule "mods/display_modpack"]
+	path = mods/display_modpack
+	url = https://github.com/pyrollo/display_modpack
+[submodule "mods/font_botic"]
+	path = mods/font_botic
+	url = https://github.com/pyrollo/font_botic
