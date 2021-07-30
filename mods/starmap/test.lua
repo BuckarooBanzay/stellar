@@ -32,3 +32,22 @@ minetest.register_chatcommand("starmap", {
         end)
     end
 })
+
+minetest.register_chatcommand("starmap2", {
+    func = function(name)
+        local player = minetest.get_player_by_name(name)
+        if not player then
+            return
+        end
+        local ppos = player:get_pos()
+
+        local map = starmap.new(ppos)
+        map:add_text({x=0, y=0, z=2}, {
+            text = "Lorem ipsum dolor sit amet,\n" ..
+                "consetetur sadipscing elitr,\n" ..
+                "sed diam nonumy eirmod tempor \n" ..
+                "invidunt ut labore et dolore magna ",
+            color = "#0000FF"
+        })
+    end
+})

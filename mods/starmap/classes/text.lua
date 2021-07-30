@@ -22,11 +22,15 @@ end
 function Text:get_properties()
     -- render font
     local font = font_api.get_font("metro")
-    local size_x = 15
+    local size_x = 5
     local size_y = 1
     local lines = 1
 
-    local textureh = font:get_height(size_y)
+    for _ in self.text:gmatch("\n") do
+        lines = lines + 1
+    end
+
+    local textureh = font:get_height(lines)
     local texturew = textureh * size_x / size_y
 
     local texture = font:render(self.text, texturew, textureh, {
