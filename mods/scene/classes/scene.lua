@@ -14,8 +14,8 @@ function scene.new(origin)
     return ctx
 end
 
-function Scene:add_entity(def)
-    local epos = vector.add(self.origin, def.pos)
+function Scene:add_entity(rel_pos, def)
+    local epos = vector.add(self.origin, rel_pos)
     return scene.new_entity(self.session, epos, def)
 end
 
