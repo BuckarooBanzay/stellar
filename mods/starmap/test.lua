@@ -27,6 +27,8 @@ minetest.register_chatcommand("starmap", {
 
         minetest.after(2, function()
             txt:set_text("Other stuff")
+            txt:set_color("#00FF00")
+            txt:update()
         end)
     end
 })

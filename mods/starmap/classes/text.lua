@@ -49,7 +49,10 @@ end
 
 function Text:set_text(text)
     self.text = text
-    self:update()
+end
+
+function Text:set_color(color)
+    self.color = color
 end
 
 function Text:update()
