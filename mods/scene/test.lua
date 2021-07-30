@@ -11,6 +11,7 @@ minetest.register_chatcommand("scene", {
             pos = { x=0, y=2, z=0 },
             on_punch = function(p)
                 print("punch: " .. p:get_player_name())
+                s:dispose()
             end,
             on_rightclick = function(p)
                 print("rightclick: " .. p:get_player_name())
