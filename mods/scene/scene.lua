@@ -21,7 +21,8 @@ function Scene:add_entity(def)
     -- assemble entity session data
     local entity_session = {
         on_punch = def.on_punch,
-        on_rightclick = def.on_rightclick
+        on_rightclick = def.on_rightclick,
+        properties = def.properties
     }
 
     -- store session data
@@ -34,8 +35,7 @@ function Scene:add_entity(def)
 
     minetest.add_entity(epos, "scene:entity", minetest.serialize({
         id = id,
-        session = self.session,
-        properties = def.properties
+        session = self.session
     }))
 
     return true
@@ -44,7 +44,7 @@ end
 function Scene:add_text(def)
         -- render font
     local font = font_api.get_font("metro")
-    local size_x = 5
+    local size_x = 15
     local size_y = 1
     local lines = 1
 

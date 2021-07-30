@@ -5,24 +5,24 @@ minetest.register_entity("scene:entity", {
 	static_save = false,
 
 	on_step = function(self)
-		-- sanity checks
-		if not self.data then
+		local session_data = scene.get_session(self.data.session)
+		if not session_data then
+			-- session expired or disposed
 			self.object:remove()
 			return
 		end
-
-		if not scene.is_active(self.data.session) then
-			self.object:remove()
-			return
+		if session_data and session_data.entities then
+			local entity_session = session_data.entities[self.data.id]
+			if entity_session.properties then
+				-- change properties to new values
+				self.object:set_properties(entity_session.properties)
+				-- clear/sign-off data
+				entity_session.properties = nil
+			end
 		end
 	end,
 
 	on_punch = function(self, player)
-		if not self.data then
-			self.object:remove()
-			return
-		end
-
 		-- dispatch event
 		local session_data = scene.get_session(self.data.session)
 		if session_data and session_data.entities then
@@ -36,11 +36,6 @@ minetest.register_entity("scene:entity", {
 	end,
 
 	on_rightclick = function(self, player)
-		if not self.data then
-			self.object:remove()
-			return
-		end
-
 		-- dispatch event
 		local session_data = scene.get_session(self.data.session)
 		if session_data and session_data.entities then
@@ -63,7 +58,5 @@ minetest.register_entity("scene:entity", {
 			self.object:remove()
 			return
 		end
-
-		self.object:set_properties(self.data.properties)
 	end
 });
