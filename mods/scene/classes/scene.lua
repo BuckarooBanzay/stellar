@@ -16,29 +16,7 @@ end
 
 function Scene:add_entity(def)
     local epos = vector.add(self.origin, def.pos)
-    local id = math.random(10000)
-
-    -- assemble entity session data
-    local entity_session = {
-        on_punch = def.on_punch,
-        on_rightclick = def.on_rightclick,
-        properties = def.properties
-    }
-
-    -- store session data
-    local session_data = scene.get_session(self.session)
-    if not session_data then
-        -- no session active
-        return false
-    end
-    session_data.entities[id] = entity_session
-
-    minetest.add_entity(epos, "scene:entity", minetest.serialize({
-        id = id,
-        session = self.session
-    }))
-
-    return true
+    return scene.new_entity(self.session, epos, def)
 end
 
 function Scene:add_text(def)
