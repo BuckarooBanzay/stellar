@@ -12,7 +12,9 @@ function scene.new_entity(session, pos, def)
     local entity_session = {
         on_punch = def.on_punch,
         on_rightclick = def.on_rightclick,
-        properties = def.properties
+        properties = def.properties,
+        rotation = def.rotation or {x=0, y=0, z=0},
+        yaw = def.yaw or 0
     }
 
     -- store session data
@@ -32,13 +34,25 @@ function scene.new_entity(session, pos, def)
 end
 
 function Entity:set_properties(properties)
+    self:set_attribute("properties", properties)
+end
+
+function Entity:set_rotation(rotation)
+    self:set_attribute("rotation", rotation)
+end
+
+function Entity:set_yaw(yaw)
+    self:set_attribute("yaw", yaw)
+end
+
+function Entity:set_attribute(key, value)
     local session_data = scene.get_session(self.session)
     if not session_data then
         return false
     end
     local entity_session = session_data.entities[self.id]
     if entity_session then
-        entity_session.properties = properties
+        entity_session[key] = value
     end
 end
 

@@ -19,6 +19,16 @@ minetest.register_entity("scene:entity", {
 				-- clear/sign-off data
 				entity_session.properties = nil
 			end
+
+			if entity_session.rotation then
+				self.object:set_rotation(entity_session.rotation)
+				entity_session.rotation = nil
+			end
+
+			if entity_session.yaw then
+				self.object:set_yaw(entity_session.yaw)
+				entity_session.yaw = nil
+			end
 		end
 	end,
 

@@ -47,12 +47,16 @@ minetest.register_chatcommand("starmap2", {
         local ppos = player:get_pos()
 
         local map = starmap.new(ppos)
-        map:add_text({x=0, y=0, z=2}, {
+        local e
+        e = map:add_text({x=0, y=0, z=2}, {
             text = "Lorem ipsum dolor sit amet,\n" ..
                 "consetetur sadipscing elitr,\n" ..
                 "sed diam nonumy eirmod tempor \n" ..
                 "invidunt ut labore et dolore magna ",
-            color = "#0000FF"
+            color = "#0000FF",
+            on_punch = function()
+                e:set_yaw(math.random() * math.pi)
+            end
         })
     end
 })

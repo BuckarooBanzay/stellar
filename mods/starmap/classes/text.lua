@@ -13,10 +13,20 @@ function starmap.new_text(scene, rel_pos, def)
     text.entity = scene:add_entity(rel_pos, {
         on_rightclick = def.on_rightclick,
         on_punch = def.on_punch,
-        properties = text:get_properties()
+        properties = text:get_properties(),
+        yaw = def.yaw,
+        rotation = def.rotation
     })
 
     return text
+end
+
+function Text:set_rotation(rotation)
+    self.entity:set_rotation(rotation)
+end
+
+function Text:set_yaw(yaw)
+    self.entity:set_yaw(yaw)
 end
 
 function Text:get_properties()
@@ -43,6 +53,10 @@ function Text:get_properties()
     return {
         visual = "upright_sprite",
         visual_size = {x=size_x,y=size_y},
+        selectionbox = {
+            -1, -1, -1,
+            1, 1, 1
+        },
         textures = { texture },
         glow = tonumber(self.glow) or 0,
         physical = false,
