@@ -10,7 +10,8 @@ minetest.register_chatcommand("starmap", {
         local map = starmap.new(ppos)
         local txt = map:add_text({x=-2, y=0, z=0}, {
             text = "Select a planet",
-            color = "#0000FF"
+            color = "#0000FF",
+            glow = 14
         })
 
         map:add_planet({x=0, y=0, z=2}, {
@@ -18,6 +19,7 @@ minetest.register_chatcommand("starmap", {
             size = 1,
             automatic_rotate = 1,
             name = "Hoth",
+            glow = 14,
             on_punch = function()
                 txt:set_text("Selected:\nHoth")
                 txt:set_color("#00FF00")
@@ -29,6 +31,7 @@ minetest.register_chatcommand("starmap", {
             size = 1.5,
             automatic_rotate = 0.3,
             name = "Arrakis",
+            glow = 14,
             on_punch = function()
                 txt:set_text("Selected:\nArrakis")
                 txt:set_color("#FF0000")
@@ -54,6 +57,7 @@ minetest.register_chatcommand("starmap2", {
                 "sed diam nonumy eirmod tempor \n" ..
                 "invidunt ut labore et dolore magna ",
             color = "#0000FF",
+            glow = 14,
             on_punch = function()
                 e:set_yaw(math.random() * math.pi)
             end

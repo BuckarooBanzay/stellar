@@ -31,7 +31,7 @@ end
 
 function Text:get_properties()
     -- render font
-    local font = font_api.get_font("metro")
+    local font = font_api.get_font("botic")
     local size_x = 10
     local size_y = 1
     local lines = 1
