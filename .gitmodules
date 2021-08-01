@@ -43,3 +43,6 @@
 [submodule "mods/framedglass"]
 	path = mods/framedglass
 	url = https://github.com/minetest-mods/framedglass
+[submodule "mods/factory_bridges"]
+	path = mods/factory_bridges
+	url = https://github.com/pandorabox-io/factory_bridges
