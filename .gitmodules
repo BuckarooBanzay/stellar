@@ -46,3 +46,9 @@
 [submodule "mods/factory_bridges"]
 	path = mods/factory_bridges
 	url = https://github.com/pandorabox-io/factory_bridges
+[submodule "mods/unifieddyes"]
+	path = mods/unifieddyes
+	url = https://gitlab.com/VanessaE/unifieddyes/
+[submodule "mods/basic_materials"]
+	path = mods/basic_materials
+	url = https://gitlab.com/VanessaE/basic_materials
