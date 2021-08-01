@@ -40,3 +40,6 @@
 [submodule "mods/xpanes"]
 	path = mods/xpanes
 	url = https://github.com/minetest-game/xpanes
+[submodule "mods/framedglass"]
+	path = mods/framedglass
+	url = https://github.com/minetest-mods/framedglass
