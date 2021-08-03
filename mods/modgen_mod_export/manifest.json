@@ -1,8 +1,8 @@
 {
-   "mapblock_count" : 97,
-   "metadata_count" : 1,
-   "mtime" : 1627829862,
-   "next_id" : 48,
+   "mapblock_count" : 98,
+   "metadata_count" : 2,
+   "mtime" : 1627997077,
+   "next_id" : 51,
    "node_mapping" : {
       "air" : 1,
       "default:chest" : 44,
@@ -18,6 +18,9 @@
       "framedglass:steel_framed_obsidian_glass" : 45,
       "glass_stained:pane_obsidian_glass_offset" : 12,
       "glass_stained:pane_obsidian_glass_single" : 11,
+      "lua_trigger:scifi_nodes_white" : 48,
+      "mesecons_button:button_off" : 49,
+      "mesecons_button:button_on" : 50,
       "scifi_nodes:blackvent" : 8,
       "scifi_nodes:blue" : 23,
       "scifi_nodes:blue_door_closed" : 13,
@@ -51,7 +54,7 @@
       "scifi_nodes:whiteoct" : 4,
       "scifi_nodes:whitetile" : 17
    },
-   "size" : 39214,
+   "size" : 39632,
    "uid" : "12c727f1-e27e-4019-8457-163ac46e2fda",
    "version" : 2
 }
