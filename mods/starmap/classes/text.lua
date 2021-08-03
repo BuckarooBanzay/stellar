@@ -61,7 +61,7 @@ function Text:get_properties()
         glow = tonumber(self.glow) or 0,
         physical = false,
         collide_with_objects = false,
-        pointable = true
+        pointable = false
     }
 end
 

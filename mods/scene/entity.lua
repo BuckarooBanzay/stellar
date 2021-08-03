@@ -29,6 +29,11 @@ minetest.register_entity("scene:entity", {
 				self.object:set_yaw(entity_session.yaw)
 				entity_session.yaw = nil
 			end
+
+			if entity_session.texture_mod then
+				self.object:set_texture_mod(entity_session.texture_mod)
+				entity_session.texture_mod = nil
+			end
 		end
 	end,
 

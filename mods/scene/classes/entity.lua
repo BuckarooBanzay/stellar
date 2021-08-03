@@ -13,8 +13,9 @@ function scene.new_entity(session, pos, def)
         on_punch = def.on_punch,
         on_rightclick = def.on_rightclick,
         properties = def.properties,
-        rotation = def.rotation or {x=0, y=0, z=0},
-        yaw = def.yaw or 0
+        rotation = def.rotation,
+        yaw = def.yaw,
+        texture_mod = def.texture_mod
     }
 
     -- store session data
@@ -43,6 +44,10 @@ end
 
 function Entity:set_yaw(yaw)
     self:set_attribute("yaw", yaw)
+end
+
+function Entity:set_texture_mod(mod)
+    self:set_attribute("texture_mod", mod)
 end
 
 function Entity:set_attribute(key, value)
