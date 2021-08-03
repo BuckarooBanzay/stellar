@@ -52,3 +52,6 @@
 [submodule "mods/basic_materials"]
 	path = mods/basic_materials
 	url = https://gitlab.com/VanessaE/basic_materials
+[submodule "mods/mesecons"]
+	path = mods/mesecons
+	url = https://github.com/minetest-mods/mesecons
