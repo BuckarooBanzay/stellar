@@ -16,6 +16,13 @@ lua_trigger.register_trigger("origin_holodeck", function(pos)
 
     map = starmap.new(pos)
 
+    local txt = map:add_text({x=0, y=4, z=-5}, {
+        text = "Select a planet",
+        color = "#0000FF",
+        glow = 14
+    })
+
+
     for _, ring in ipairs(system.rings) do
         local position = ring.position
         if not position then
@@ -41,7 +48,20 @@ lua_trigger.register_trigger("origin_holodeck", function(pos)
             z = planet.position.z
         }
 
-        map:add_planet(planet_pos, planet)
+        map:add_planet(planet_pos, {
+            texture = planet.texture,
+            size = planet.size,
+            automatic_rotate = planet.automatic_rotate,
+            glow = 14,
+            on_punch = function()
+                if not planet.name then
+                    return
+                end
+                txt:set_text("Selected:\n" .. planet.name)
+                txt:set_color("#00FF00")
+                txt:update()
+            end
+        })
     end
 
 end)

@@ -24,7 +24,7 @@ end
 
 function Ring:get_properties()
     local texture = "starmap_ring.png"
-    local size = self.radius * 2
+    local size = self.radius * 2 * 1.05
     local glow = self.glow or 0
 
     return {
