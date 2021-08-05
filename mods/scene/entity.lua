@@ -67,6 +67,7 @@ minetest.register_entity("scene:entity", {
 	end,
 
 	on_activate = function(self, staticdata)
+		self.object:set_armor_groups({punch_operable = 1})
 		self.data = minetest.deserialize(staticdata)
 
 		if not self.data then
