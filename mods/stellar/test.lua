@@ -26,17 +26,18 @@ local function travel(name)
     local player = minetest.get_player_by_name(name)
 
     -- fade-in
-        player:set_sky({
+    player:set_sky({
         base_color = "#FFFFFF",
         type = "plain",
         clouds = false
     })
-    local time = 10+1
+    local time = 10
     create_spawner(time, 200*time)
     create_spawner(time, 50*time, "#FF0000")
     create_spawner(time, 20*time, "#0000FF")
+
+    -- travel
     minetest.after(1, function()
-        -- travel
         player = minetest.get_player_by_name(name)
         player:set_sky({
             base_color = "#000000",
@@ -44,8 +45,9 @@ local function travel(name)
             clouds = false
         })
     end)
+
+    -- fade-out
     minetest.after(11, function()
-        -- fade-out
         player = minetest.get_player_by_name(name)
         player:set_sky({
             base_color = "#FFFFFF",
@@ -53,8 +55,9 @@ local function travel(name)
             clouds = false
         })
     end)
+
+    -- restore
     minetest.after(12, function()
-        -- restore
         player = minetest.get_player_by_name(name)
         -- TODO: do this with a helper-function form the "skybox" mod
         player:set_clouds({ density=0 })
