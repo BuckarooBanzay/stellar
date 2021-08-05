@@ -1,3 +1,6 @@
+globals = {
+	"stellar"
+}
 
 read_globals = {
 	-- Stdlib
@@ -11,6 +14,5 @@ read_globals = {
 	"font_api",
 	"scene",
 	"starmap",
-	"stellar",
 	"lua_trigger"
 }

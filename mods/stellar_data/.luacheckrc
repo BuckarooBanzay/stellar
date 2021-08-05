@@ -11,6 +11,6 @@ read_globals = {
 	"font_api",
 	"scene",
 	"starmap",
-	"stellar",
-	"lua_trigger"
+	"lua_trigger",
+	"stellar"
 }
