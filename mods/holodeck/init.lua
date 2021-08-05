@@ -73,4 +73,13 @@ lua_trigger.register_trigger("origin_holodeck", function(pos)
         })
     end
 
+    map:add_button({x=-10, y=y_offset, z=0}, {
+        on_punch = function()
+        end
+    })
+
+    map:add_text({x=-10, y=y_offset, z=-3}, {
+        text = "Jump"
+    })
+
 end)
