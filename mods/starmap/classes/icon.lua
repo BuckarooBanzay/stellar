@@ -1,6 +1,15 @@
 local Icon = {}
 Icon.__index = Icon
 
+local icons = {
+    ["gears1"] = {x=0, y=0},
+    ["gears2"] = {x=1, y=0},
+    ["gears3"] = {x=2, y=0},
+    ["tick1"] = {x=3, y=0},
+    ["tick2"] = {x=4, y=0},
+    ["tick3"] = {x=5, y=0},
+}
+
 function starmap.new_icon(scene, rel_pos, def)
     local icon = {
         scene = scene,
@@ -8,7 +17,8 @@ function starmap.new_icon(scene, rel_pos, def)
         size = def.size,
         automatic_rotate = def.automatic_rotate,
         name = def.name,
-        color = def.color
+        color = def.color,
+        icon_name = def.icon_name
     }
     setmetatable(icon, Icon)
 
@@ -32,7 +42,11 @@ function Icon:set_yaw(yaw)
 end
 
 function Icon:get_properties()
-    local texture = "starmap_icons.png^[sheet:8x8:4,0"
+    local icon_index = icons[self.icon_name]
+    if not icon_index then
+        icon_index = {x=0, y=0}
+    end
+    local texture = "starmap_icons.png^[sheet:8x8:" .. icon_index.x .. "," .. icon_index.y
     if self.color then
         texture = texture .. "^[colorize:" .. self.color
     end

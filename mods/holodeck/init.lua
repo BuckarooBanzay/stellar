@@ -75,6 +75,7 @@ lua_trigger.register_periodic_trigger("origin_holodeck", function(pos)
     end
 
     map:add_icon({x=-10, y=y_offset, z=0}, {
+        icon_name = "tick1",
         on_punch = function()
         end,
         color = "#00FF00",
@@ -87,6 +88,7 @@ lua_trigger.register_periodic_trigger("origin_holodeck", function(pos)
     })
 
     map:add_icon({x=-10, y=y_offset+2, z=0}, {
+        icon_name = "tick1",
         on_punch = function()
         end,
         color = "#FF0000",
