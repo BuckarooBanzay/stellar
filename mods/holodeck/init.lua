@@ -54,6 +54,7 @@ lua_trigger.register_trigger("origin_holodeck", function(pos)
             texture = planet.texture,
             size = planet.size,
             automatic_rotate = planet.automatic_rotate,
+            name = planet.name,
             glow = 14,
             on_punch = function(player)
                 if not planet.name then
@@ -79,7 +80,18 @@ lua_trigger.register_trigger("origin_holodeck", function(pos)
     })
 
     map:add_text({x=-10, y=y_offset, z=-3}, {
-        text = "Jump"
+        text = "Jump",
+        yaw = math.pi/2
+    })
+
+    map:add_button({x=-10, y=y_offset+2, z=0}, {
+        on_punch = function()
+        end
+    })
+
+    map:add_text({x=-10, y=y_offset+2, z=-3}, {
+        text = "Whatever",
+        yaw = math.pi/2
     })
 
 end)
