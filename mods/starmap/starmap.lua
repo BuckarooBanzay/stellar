@@ -23,8 +23,8 @@ function Starmap:add_text(rel_pos, def)
     return starmap.new_text(self.scene, rel_pos, def)
 end
 
-function Starmap:add_button(rel_pos, def)
-    return starmap.new_button(self.scene, rel_pos, def)
+function Starmap:add_icon(rel_pos, def)
+    return starmap.new_icon(self.scene, rel_pos, def)
 end
 
 function Starmap:is_active()

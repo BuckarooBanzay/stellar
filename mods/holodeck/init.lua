@@ -74,9 +74,11 @@ lua_trigger.register_periodic_trigger("origin_holodeck", function(pos)
         })
     end
 
-    map:add_button({x=-10, y=y_offset, z=0}, {
+    map:add_icon({x=-10, y=y_offset, z=0}, {
         on_punch = function()
-        end
+        end,
+        color = "#00FF00",
+        yaw = math.pi/2
     })
 
     map:add_text({x=-10, y=y_offset, z=-3}, {
@@ -84,9 +86,11 @@ lua_trigger.register_periodic_trigger("origin_holodeck", function(pos)
         yaw = math.pi/2
     })
 
-    map:add_button({x=-10, y=y_offset+2, z=0}, {
+    map:add_icon({x=-10, y=y_offset+2, z=0}, {
         on_punch = function()
-        end
+        end,
+        color = "#FF0000",
+        yaw = math.pi/2
     })
 
     map:add_text({x=-10, y=y_offset+2, z=-3}, {
