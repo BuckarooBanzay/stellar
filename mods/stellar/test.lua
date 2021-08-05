@@ -1,4 +1,9 @@
 
+local minpos = { x=0, y=14, z=-120 }
+local maxpos = { x=0, y=14, z=-120 }
+local minvel = { x=-20, y=-5, z=30 }
+local maxvel = { x=20, y=10, z=30 }
+
 local function create_spawner(time, amount, color)
     local texture = "stellar_star1.png"
     if color then
@@ -7,10 +12,10 @@ local function create_spawner(time, amount, color)
     minetest.add_particlespawner({
         amount = amount,
         time = time,
-        minpos = { x=0, y=14, z=-120 },
-        maxpos = { x=0, y=14, z=-120 },
-        minvel = { x=-20, y=-5, z=30 },
-        maxvel = { x=20, y=5, z=30 },
+        minpos = minpos,
+        maxpos = maxpos,
+        minvel = minvel,
+        maxvel = maxvel,
         minexptime = time,
         maxexptime = time,
         minsize = 0.2,
@@ -22,22 +27,26 @@ local function create_spawner(time, amount, color)
     })
 end
 
-local function travel(name)
+local function ftl_travel(name)
     local player = minetest.get_player_by_name(name)
 
-    -- fade-in
-    player:set_sky({
-        base_color = "#FFFFFF",
-        type = "plain",
-        clouds = false
-    })
-    local time = 10
-    create_spawner(time, 200*time)
-    create_spawner(time, 50*time, "#FF0000")
-    create_spawner(time, 20*time, "#0000FF")
+    minetest.sound_play({ name = "stellar_hyperdrive_start" }, { to_player = name }, true)
+
+    minetest.after(1.5, function()
+        -- fade-in
+        player:set_sky({
+            base_color = "#FFFFFF",
+            type = "plain",
+            clouds = false
+        })
+        local time = 10
+        create_spawner(time, 200*time)
+        create_spawner(time, 50*time, "#FF0000")
+        create_spawner(time, 20*time, "#0000FF")
+    end)
 
     -- travel
-    minetest.after(1, function()
+    minetest.after(3, function()
         player = minetest.get_player_by_name(name)
         player:set_sky({
             base_color = "#000000",
@@ -47,7 +56,9 @@ local function travel(name)
     end)
 
     -- fade-out
-    minetest.after(11, function()
+    minetest.after(13, function()
+        minetest.sound_play({ name = "stellar_hyperdrive_stop" }, { to_player = name }, true)
+
         player = minetest.get_player_by_name(name)
         player:set_sky({
             base_color = "#FFFFFF",
@@ -57,7 +68,7 @@ local function travel(name)
     end)
 
     -- restore
-    minetest.after(12, function()
+    minetest.after(14, function()
         player = minetest.get_player_by_name(name)
         -- TODO: do this with a helper-function form the "skybox" mod
         player:set_clouds({ density=0 })
@@ -73,5 +84,30 @@ local function travel(name)
 end
 
 minetest.register_chatcommand("travel1", {
-    func = travel
+    func = ftl_travel
+})
+
+local function sublight_travel()
+    local time = 20
+    minetest.add_particlespawner({
+        amount = 50*time,
+        time = time,
+        minpos = vector.subtract(minpos, {x=30, y=30, z=0}),
+        maxpos = vector.add(maxpos, {x=30, y=30, z=0}),
+        minvel = {x=0, y=0, z=30},
+        maxvel = {x=0, y=0, z=30},
+        minexptime = time,
+        maxexptime = time,
+        minsize = 0.5,
+        maxsize = 1.5,
+        collisiondetection = true,
+        collision_removal = true,
+        texture = "default_stone.png",
+        glow = 10
+    })
+end
+
+
+minetest.register_chatcommand("travel2", {
+    func = sublight_travel
 })
