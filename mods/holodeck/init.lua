@@ -1,7 +1,7 @@
 
 local map
 
-lua_trigger.register_trigger("origin_holodeck", function(pos)
+lua_trigger.register_periodic_trigger("origin_holodeck", function(pos)
     if map and map:is_active() then
         -- already active/valid
         return
@@ -14,7 +14,7 @@ lua_trigger.register_trigger("origin_holodeck", function(pos)
         return
     end
 
-    local y_offset = 2
+    local y_offset = 4
 
     map = starmap.new(pos)
 

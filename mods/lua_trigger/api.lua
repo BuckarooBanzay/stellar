@@ -1,4 +1,5 @@
 local triggers = {}
+local periodic_triggers = {}
 
 local digiline_rules = {
 	-- digilines.rules.default
@@ -25,6 +26,20 @@ local function do_trigger(pos, channel, msg)
     trigger(pos, channel, msg)
 end
 
+local function do_periodic_trigger(pos)
+    local meta = minetest.get_meta(pos)
+    local event = meta:get_string("event")
+    if not event then
+        return
+    end
+    local trigger = periodic_triggers[event]
+    if type(trigger) ~= "function" then
+        return
+    end
+
+    trigger(pos)
+end
+
 function lua_trigger.register_node(nodename)
     local def = minetest.registered_nodes[nodename]
     assert(def, "node not found: " .. nodename)
@@ -34,7 +49,7 @@ function lua_trigger.register_node(nodename)
     minetest.register_node(local_name, {
         description = "Lua-trigger node for " .. nodename,
         tiles = def.tiles,
-        groups = {cracky = 3},
+        groups = {cracky = 3, lua_trigger = 1},
         sounds = def.sounds,
         mesecons = {effector = {
 			action_on = function(pos)
@@ -68,6 +83,18 @@ function lua_trigger.register_node(nodename)
     })
 end
 
+minetest.register_abm({
+    label = "Periodic lua trigger",
+    nodenames = {"group:lua_trigger"},
+    interval = 1,
+    chance = 1,
+    action = do_periodic_trigger
+})
+
 function lua_trigger.register_trigger(name, fn)
     triggers[name] = fn
+end
+
+function lua_trigger.register_periodic_trigger(name, fn)
+    periodic_triggers[name] = fn
 end
