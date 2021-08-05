@@ -7,6 +7,8 @@ lua_trigger.register_trigger("origin_holodeck", function(pos)
         return
     end
 
+    minetest.sound_play({ name = "holodeck_click1", gain = 2 }, { pos = pos }, true)
+
     local system = stellar.get_system("origin")
     if not system then
         return
@@ -53,10 +55,17 @@ lua_trigger.register_trigger("origin_holodeck", function(pos)
             size = planet.size,
             automatic_rotate = planet.automatic_rotate,
             glow = 14,
-            on_punch = function()
+            on_punch = function(player)
                 if not planet.name then
                     return
                 end
+                minetest.sound_play({
+                    name = "holodeck_click2",
+                    gain = 2
+                }, {
+                    to_player = player:get_player_name()
+                }, true)
+
                 txt:set_text("Selected:\n" .. planet.name)
                 txt:set_color("#00FF00")
                 txt:update()
