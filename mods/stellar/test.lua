@@ -90,7 +90,7 @@ minetest.register_chatcommand("travel1", {
 local function sublight_travel()
     local time = 20
     minetest.add_particlespawner({
-        amount = 50*time,
+        amount = 200*time,
         time = time,
         minpos = vector.subtract(minpos, {x=30, y=30, z=0}),
         maxpos = vector.add(maxpos, {x=30, y=30, z=0}),
