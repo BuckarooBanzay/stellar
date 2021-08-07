@@ -7,5 +7,8 @@ read_globals = {
 	-- Minetest
 	"minetest",
 	"vector", "ItemStack",
-	"dump", "VoxelArea"
+	"dump", "VoxelArea",
+
+	-- deps
+	"stellar"
 }

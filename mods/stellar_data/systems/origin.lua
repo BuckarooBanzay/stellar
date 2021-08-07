@@ -5,6 +5,14 @@ stellar.register_system("origin", {
         { radius = 6, color = "#00FF00" },
         { radius = 2, color = "#0000FF", position = {x=0, z=6} }
     },
+    skybox = {
+        "sky_pos_z.png",
+        "sky_neg_z.png^[transformR180",
+        "sky_neg_y.png^[transformR270",
+        "sky_pos_y.png^[transformR270",
+        "sky_pos_x.png^[transformR270",
+        "sky_neg_x.png^[transformR90"
+    },
     planets = {
         {
             texture = "default_lava.png",
