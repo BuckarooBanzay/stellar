@@ -55,3 +55,6 @@
 [submodule "mods/mesecons"]
 	path = mods/mesecons
 	url = https://github.com/minetest-mods/mesecons
+[submodule "mods/letters"]
+	path = mods/letters
+	url = https://github.com/minetest-mods/letters

@@ -1,14 +1,24 @@
 {
    "mapblock_count" : 98,
    "metadata_count" : 4,
-   "mtime" : 1628512406,
-   "next_id" : 68,
+   "mtime" : 1628512621,
+   "next_id" : 79,
    "node_mapping" : {
       "air" : 1,
       "default:chest" : 44,
       "default:diamondblock" : 0,
       "default:dirt_with_grass" : 28,
       "default:obsidian_glass" : 26,
+      "default:steelblock_letter_eu" : 72,
+      "default:steelblock_letter_hu" : 71,
+      "default:steelblock_letter_iu" : 75,
+      "default:steelblock_letter_mu" : 70,
+      "default:steelblock_letter_nu" : 77,
+      "default:steelblock_letter_ou" : 78,
+      "default:steelblock_letter_pu" : 73,
+      "default:steelblock_letter_ru" : 76,
+      "default:steelblock_letter_su" : 69,
+      "default:steelblock_letter_yu" : 74,
       "factory_bridges:a05" : 55,
       "factory_bridges:a09" : 56,
       "factory_bridges:b00" : 37,
@@ -20,6 +30,7 @@
       "framedglass:steel_framed_obsidian_glass" : 45,
       "glass_stained:pane_obsidian_glass_offset" : 12,
       "glass_stained:pane_obsidian_glass_single" : 11,
+      "letters:letter_cutter_upper" : 68,
       "lua_trigger:scifi_nodes_white" : 48,
       "mesecons_button:button_off" : 49,
       "mesecons_button:button_on" : 50,
@@ -71,7 +82,7 @@
       "scifi_nodes:whiteoct" : 4,
       "scifi_nodes:whitetile" : 17
    },
-   "size" : 41375,
+   "size" : 41510,
    "uid" : "12c727f1-e27e-4019-8457-163ac46e2fda",
    "version" : 2
 }
