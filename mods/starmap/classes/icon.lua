@@ -20,7 +20,9 @@ function starmap.new_icon(scene, rel_pos, def)
         automatic_rotate = def.automatic_rotate,
         name = def.name,
         color = def.color,
-        icon_name = def.icon_name
+        icon_name = def.icon_name,
+        pointable = def.pointable,
+        physical = def.physical
     }
     setmetatable(icon, Icon)
 
@@ -62,9 +64,9 @@ function Icon:get_properties()
             texture
         },
         glow = glow,
-        physical = false,
         collide_with_objects = false,
-        pointable = true,
+        pointable = self.pointable,
+        physical = self.physical,
         nametag = self.name
     }
 end
