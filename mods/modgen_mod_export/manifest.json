@@ -1,8 +1,8 @@
 {
    "mapblock_count" : 98,
    "metadata_count" : 4,
-   "mtime" : 1628510305,
-   "next_id" : 67,
+   "mtime" : 1628510852,
+   "next_id" : 68,
    "node_mapping" : {
       "air" : 1,
       "default:chest" : 44,
@@ -60,6 +60,7 @@
       "scifi_nodes:slope_whitetile_outer" : 25,
       "scifi_nodes:stair_doomwall3" : 54,
       "scifi_nodes:stair_pplblk" : 63,
+      "scifi_nodes:stair_pplblk_outer" : 67,
       "scifi_nodes:stair_whitetile" : 30,
       "scifi_nodes:stair_whitetile_alt_1" : 31,
       "scifi_nodes:stripes" : 27,
@@ -70,7 +71,7 @@
       "scifi_nodes:whiteoct" : 4,
       "scifi_nodes:whitetile" : 17
    },
-   "size" : 41326,
+   "size" : 41368,
    "uid" : "12c727f1-e27e-4019-8457-163ac46e2fda",
    "version" : 2
 }
