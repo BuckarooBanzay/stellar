@@ -2,9 +2,9 @@
 stellar.register_system("helios", {
     name = "Helios",
     rings = {
-        { radius = 4 },
-        { radius = 6, color = "#00FF00" },
-        { radius = 2, color = "#0000FF", position = {x=0, z=6} }
+        { radius = 4, color = "#00FF00"},
+        { radius = 6 },
+        { radius = 2, position = {x=0, z=6} }
     },
     skybox = {
         "sky_pos_z.png",
