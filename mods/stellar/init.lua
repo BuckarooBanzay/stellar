@@ -5,9 +5,10 @@ stellar = {
 local MP = minetest.get_modpath("stellar")
 dofile(MP.."/system.lua")
 dofile(MP.."/ship.lua")
-dofile(MP.."/teleporter.lua")
 dofile(MP.."/skybox.lua")
-dofile(MP.."/origin_holodeck.lua")
+
+dofile(MP.."/ships/hyperion/holodeck.lua")
+dofile(MP.."/ships/hyperion/teleporter.lua")
 
 dofile(MP.."/systems/helios.lua")
 

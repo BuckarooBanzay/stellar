@@ -1,7 +1,7 @@
 
 local map
 
-lua_trigger.register_periodic_trigger("origin_holodeck", function(pos)
+lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
     if map and map:is_active() then
         -- already active/valid
         return
