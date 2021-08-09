@@ -76,6 +76,14 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
                 txt:update()
             end
         })
+
+        if planet.key == ship_status.planet then
+            -- current position
+            map:add_icon(vector.add(planet_pos, {x=0, y=1, z=0}), {
+                icon_name = "home2",
+                color = "#00FF00"
+            })
+        end
     end
 
     map:add_icon({x=-10, y=y_offset, z=0}, {

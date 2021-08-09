@@ -8,6 +8,8 @@ local icons = {
     ["tick1"] = {x=3, y=0},
     ["tick2"] = {x=4, y=0},
     ["tick3"] = {x=5, y=0},
+    ["home1"] = {x=0, y=4},
+    ["home2"] = {x=1, y=4}
 }
 
 function starmap.new_icon(scene, rel_pos, def)
