@@ -1,5 +1,8 @@
-stellar = {}
+stellar = {
+    storage = minetest.get_mod_storage()
+}
 
 local MP = minetest.get_modpath("stellar")
-dofile(MP.."/api.lua")
+dofile(MP.."/system.lua")
+dofile(MP.."/ship.lua")
 dofile(MP.."/test.lua")
