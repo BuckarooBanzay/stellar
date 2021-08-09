@@ -1,5 +1,22 @@
 
 lua_trigger.register_periodic_trigger("hyperion_teleporter", function(pos)
+    local ship_status = stellar.get_ship_status()
+    if not ship_status.system then
+        return
+    end
+
+    local system = stellar.get_system(ship_status.system)
+    if not system then
+        return
+    end
+
+    local planet = system[ship_status.planet]
+    if not planet then
+        return
+    end
+
+    -- TODO: add holografic target name to teleporter
+
     local texture = "stellar_star1.png^[colorize:#9A32CD"
     minetest.add_particlespawner({
         amount = 50,
