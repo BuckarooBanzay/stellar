@@ -9,12 +9,7 @@ dofile(MP.."/ship.lua")
 dofile(MP.."/skybox.lua")
 
 stellar.ships = {}
-stellar.ships.hyperion = {}
-
-dofile(MP.."/ships/hyperion/navigation.lua")
-dofile(MP.."/ships/hyperion/starmap.lua")
-dofile(MP.."/ships/hyperion/teleporter.lua")
-dofile(MP.."/ships/hyperion/engineering.lua")
+dofile(MP.."/ships/hyperion/init.lua")
 
 dofile(MP.."/systems/helios.lua")
 

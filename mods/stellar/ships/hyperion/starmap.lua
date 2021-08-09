@@ -74,6 +74,8 @@ lua_trigger.register_periodic_trigger("hyperion_starmap", function(pos)
                 txt:set_text("Selected:\n" .. planet.name)
                 txt:set_color("#00FF00")
                 txt:update()
+
+                stellar.ships.hyperion.update_navigation()
             end
         })
 
