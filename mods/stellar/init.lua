@@ -8,6 +8,10 @@ dofile(MP.."/system.lua")
 dofile(MP.."/ship.lua")
 dofile(MP.."/skybox.lua")
 
+stellar.ships = {}
+stellar.ships.hyperion = {}
+
+dofile(MP.."/ships/hyperion/navigation.lua")
 dofile(MP.."/ships/hyperion/holodeck.lua")
 dofile(MP.."/ships/hyperion/teleporter.lua")
 dofile(MP.."/ships/hyperion/engineering.lua")
