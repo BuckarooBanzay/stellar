@@ -5,12 +5,7 @@ lua_trigger.register_periodic_trigger("hyperion_teleporter", function(pos)
         return
     end
 
-    local system = stellar.get_system(ship_status.system)
-    if not system then
-        return
-    end
-
-    local planet = system[ship_status.planet]
+    local planet = stellar.get_current_planet()
     if not planet then
         return
     end
