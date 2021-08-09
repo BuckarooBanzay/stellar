@@ -1,5 +1,6 @@
 
-stellar.register_system("origin", {
+stellar.register_system("helios", {
+    name = "Helios",
     rings = {
         { radius = 4 },
         { radius = 6, color = "#00FF00" },
@@ -20,19 +21,21 @@ stellar.register_system("origin", {
             size = 1,
             automatic_rotate = 0.1
         },{
-            name = "Hoth",
+            key = "helios_2",
+            name = "Helios 2",
             position = {x=0, z=6},
             texture = "default_snow.png",
             size = 0.5,
-            automatic_rotate = 1
+            automatic_rotate = 0.2
         },{
-            name = "Arrakis",
+            key = "helios_prime",
+            name = "Helios prime",
             position = {x=4, z=0},
-            texture = "default_sand.png",
+            texture = "default_grass.png",
             size = 0.7,
-            automatic_rotate = 0.3
+            automatic_rotate = 0.7
         },{
-            name = "Unnamed station",
+            name = "UV Station",
             position = {x=2, z=6},
             texture = "scifi_nodes_grey_square.png",
             size = 0.3,

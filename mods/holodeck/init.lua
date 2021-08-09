@@ -8,8 +8,12 @@ lua_trigger.register_periodic_trigger("origin_holodeck", function(pos)
     end
 
     minetest.sound_play({ name = "holodeck_click1", gain = 2 }, { pos = pos }, true)
+    local ship_status = stellar.get_ship_status()
+    if not ship_status.system then
+        return
+    end
 
-    local system = stellar.get_system("origin")
+    local system = stellar.get_system(ship_status.system)
     if not system then
         return
     end
