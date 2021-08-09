@@ -13,6 +13,6 @@ read_globals = {
 	"minetest",
 	"font_api",
 	"scene",
-	"starmap",
+	"holodeck",
 	"lua_trigger"
 }

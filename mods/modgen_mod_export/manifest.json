@@ -1,7 +1,7 @@
 {
    "mapblock_count" : 98,
    "metadata_count" : 6,
-   "mtime" : 1628528707,
+   "mtime" : 1628529212,
    "next_id" : 93,
    "node_mapping" : {
       "air" : 1,
@@ -96,7 +96,7 @@
       "scifi_nodes:whitetile" : 17,
       "signs_road:blue_sign" : 92
    },
-   "size" : 42429,
+   "size" : 42427,
    "uid" : "12c727f1-e27e-4019-8457-163ac46e2fda",
    "version" : 2
 }

@@ -1,6 +1,6 @@
 
 globals = {
-	"starmap"
+	"holodeck"
 }
 
 read_globals = {

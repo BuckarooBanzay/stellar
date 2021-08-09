@@ -1,7 +1,7 @@
 local Ring = {}
 Ring.__index = Ring
 
-function starmap.new_ring(scene, rel_pos, def)
+function holodeck.new_ring(scene, rel_pos, def)
     local ring = {
         scene = scene,
         texture = def.texture,
@@ -23,7 +23,7 @@ function starmap.new_ring(scene, rel_pos, def)
 end
 
 function Ring:get_properties()
-    local texture = "starmap_ring.png"
+    local texture = "holodeck_ring.png"
     local size = self.radius * 2 * 1.05
     local glow = self.glow or 0
 
