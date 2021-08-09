@@ -2,6 +2,7 @@
 if minetest.get_modpath("default") then
     lua_trigger.register_node("default:stone")
     lua_trigger.register_node("default:cobble")
+    lua_trigger.register_node("default:mese")
 end
 
 if minetest.get_modpath("scifi_nodes") then

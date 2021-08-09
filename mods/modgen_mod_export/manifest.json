@@ -1,7 +1,7 @@
 {
    "mapblock_count" : 98,
    "metadata_count" : 5,
-   "mtime" : 1628516680,
+   "mtime" : 1628524081,
    "next_id" : 93,
    "node_mapping" : {
       "air" : 1,
@@ -31,7 +31,7 @@
       "glass_stained:pane_obsidian_glass_offset" : 12,
       "glass_stained:pane_obsidian_glass_single" : 11,
       "letters:letter_cutter_upper" : 68,
-      "lua_trigger:scifi_nodes_white" : 48,
+      "lua_trigger:default_mese" : 48,
       "mesecons_button:button_off" : 49,
       "mesecons_button:button_on" : 50,
       "scifi_nodes:black_mesh" : 87,
@@ -96,7 +96,7 @@
       "scifi_nodes:whitetile" : 17,
       "signs_road:blue_sign" : 92
    },
-   "size" : 41863,
+   "size" : 41862,
    "uid" : "12c727f1-e27e-4019-8457-163ac46e2fda",
    "version" : 2
 }
