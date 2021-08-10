@@ -3,6 +3,7 @@ stellar = {
 }
 
 local MP = minetest.get_modpath("stellar")
+dofile(MP.."/events.lua")
 dofile(MP.."/spawn.lua")
 dofile(MP.."/system.lua")
 dofile(MP.."/ship.lua")
