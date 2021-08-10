@@ -70,16 +70,7 @@ local function ftl_travel(name)
     -- restore
     minetest.after(14, function()
         player = minetest.get_player_by_name(name)
-        -- TODO: do this with a helper-function form the "skybox" mod
-        player:set_clouds({ density=0 })
-        player:set_sky({r=0, g=0, b=0}, "skybox", {
-          "sky_pos_z.png",
-          "sky_neg_z.png^[transformR180",
-          "sky_neg_y.png^[transformR270",
-          "sky_pos_y.png^[transformR270",
-          "sky_pos_x.png^[transformR270",
-          "sky_neg_x.png^[transformR90"
-        })
+        stellar.reset_skybox(player)
     end)
 end
 
