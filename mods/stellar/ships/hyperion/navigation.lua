@@ -2,7 +2,7 @@
 -- hash -> ctx
 local data = {}
 
-stellar.events.emit("hyperion_navigation_select", function(planet)
+stellar.events.on("hyperion_navigation_select", function(planet)
     for _, ctx in ipairs(data) do
         ctx.txt:set_text("Selected: " .. planet.name)
     end
