@@ -1,13 +1,13 @@
 
-local map
+local hd
 
-lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
-    if map and map:is_active() then
+lua_trigger.register_periodic_trigger("hyperion_starmap", function(pos)
+    if hd and hd:is_active() then
         -- already active/valid
         return
     end
 
-    minetest.sound_play({ name = "holodeck_click1", gain = 2 }, { pos = pos }, true)
+    minetest.sound_play({ name = "stellar_click1", gain = 2 }, { pos = pos }, true)
     local ship_status = stellar.get_ship_status()
     if not ship_status.system then
         return
@@ -20,9 +20,9 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
 
     local y_offset = 4
 
-    map = starmap.new(pos)
+    hd = holodeck.new(pos)
 
-    local txt = map:add_text({x=0, y=4, z=-5}, {
+    local txt = hd:add_text({x=0, y=4, z=-5}, {
         text = "Select a planet",
         color = "#0000FF",
         glow = 14
@@ -41,7 +41,7 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
             y = y_offset,
             z = position.z
         }
-        map:add_ring(ring_pos, {
+        hd:add_ring(ring_pos, {
             radius = ring.radius,
             color = ring.color
         })
@@ -54,7 +54,7 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
             z = planet.position.z
         }
 
-        map:add_planet(planet_pos, {
+        hd:add_planet(planet_pos, {
             texture = planet.texture,
             size = planet.size,
             automatic_rotate = planet.automatic_rotate,
@@ -65,7 +65,7 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
                     return
                 end
                 minetest.sound_play({
-                    name = "holodeck_click2",
+                    name = "stellar_click2",
                     gain = 2
                 }, {
                     to_player = player:get_player_name()
@@ -74,12 +74,14 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
                 txt:set_text("Selected:\n" .. planet.name)
                 txt:set_color("#00FF00")
                 txt:update()
+
+                stellar.ships.hyperion.update_navigation()
             end
         })
 
         if planet.key == ship_status.planet then
             -- current position
-            map:add_icon(vector.add(planet_pos, {x=0, y=1, z=0}), {
+            hd:add_icon(vector.add(planet_pos, {x=0, y=1, z=0}), {
                 icon_name = "home2",
                 color = "#00FF00",
                 pointable = false
@@ -87,7 +89,7 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
         end
     end
 
-    map:add_icon({x=-10, y=y_offset, z=0}, {
+    hd:add_icon({x=-10, y=y_offset, z=0}, {
         icon_name = "tick1",
         on_punch = function()
         end,
@@ -95,12 +97,12 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
         yaw = math.pi/2
     })
 
-    map:add_text({x=-10, y=y_offset, z=-3}, {
+    hd:add_text({x=-10, y=y_offset, z=-3}, {
         text = "Jump",
         yaw = math.pi/2
     })
 
-    map:add_icon({x=-10, y=y_offset+2, z=0}, {
+    hd:add_icon({x=-10, y=y_offset+2, z=0}, {
         icon_name = "tick1",
         on_punch = function()
         end,
@@ -108,7 +110,7 @@ lua_trigger.register_periodic_trigger("hyperion_holodeck", function(pos)
         yaw = math.pi/2
     })
 
-    map:add_text({x=-10, y=y_offset+2, z=-3}, {
+    hd:add_text({x=-10, y=y_offset+2, z=-3}, {
         text = "Whatever",
         yaw = math.pi/2
     })

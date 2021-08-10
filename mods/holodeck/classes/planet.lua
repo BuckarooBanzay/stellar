@@ -1,7 +1,7 @@
 local Planet = {}
 Planet.__index = Planet
 
-function starmap.new_planet(scene, rel_pos, def)
+function holodeck.new_planet(scene, rel_pos, def)
     local planet = {
         scene = scene,
         texture = def.texture,

@@ -1,7 +1,7 @@
 local Text = {}
 Text.__index = Text
 
-function starmap.new_text(scene, rel_pos, def)
+function holodeck.new_text(scene, rel_pos, def)
     local text = {
         scene = scene,
         text = def.text,

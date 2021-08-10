@@ -12,7 +12,7 @@ local icons = {
     ["home2"] = {x=1, y=4}
 }
 
-function starmap.new_icon(scene, rel_pos, def)
+function holodeck.new_icon(scene, rel_pos, def)
     local icon = {
         scene = scene,
         glow = def.glow,
@@ -50,7 +50,7 @@ function Icon:get_properties()
     if not icon_index then
         icon_index = {x=0, y=0}
     end
-    local texture = "starmap_icons.png^[sheet:8x8:" .. icon_index.x .. "," .. icon_index.y
+    local texture = "holodeck_icons.png^[sheet:8x8:" .. icon_index.x .. "," .. icon_index.y
     if self.color then
         texture = texture .. "^[colorize:" .. self.color
     end
