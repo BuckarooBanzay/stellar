@@ -3,8 +3,9 @@
 local data = {}
 
 stellar.events.on("hyperion_navigation_select", function(planet)
-    for _, ctx in ipairs(data) do
+    for _, ctx in pairs(data) do
         ctx.txt:set_text("Selected: " .. planet.name)
+        ctx.txt:update()
     end
 end)
 

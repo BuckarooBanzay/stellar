@@ -75,9 +75,7 @@ lua_trigger.register_periodic_trigger("hyperion_starmap", function(pos)
                 txt:set_color("#00FF00")
                 txt:update()
 
-                stellar.events.emit("hyperion_navigation_select", {
-                    planet = planet
-                })
+                stellar.events.emit("hyperion_navigation_select", planet)
             end
         })
 
