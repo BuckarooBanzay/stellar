@@ -34,6 +34,7 @@ local function teleport_near_players(source_pos, target_pos)
             -- player is near the source_pos
             player:set_pos(vector.add(target_pos, {x=0, y=0.5, z=0}))
             player:set_look_horizontal(player:get_look_horizontal() + math.pi)
+            minetest.sound_play({ name = "stellar_teleport" }, { to_player = name }, true)
             debounce_table[name] = now
         end
     end
