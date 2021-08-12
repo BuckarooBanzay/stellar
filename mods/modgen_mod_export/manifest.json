@@ -1,8 +1,8 @@
 {
-   "mapblock_count" : 99,
-   "metadata_count" : 6,
-   "mtime" : 1628755821,
-   "next_id" : 95,
+   "mapblock_count" : 259,
+   "metadata_count" : 31,
+   "mtime" : 1628768674,
+   "next_id" : 99,
    "node_mapping" : {
       "air" : 1,
       "default:chest" : 44,
@@ -65,6 +65,8 @@
       "scifi_nodes:pplwll" : 61,
       "scifi_nodes:pplwll4" : 62,
       "scifi_nodes:red" : 22,
+      "scifi_nodes:rock" : 96,
+      "scifi_nodes:rock2" : 95,
       "scifi_nodes:slope_black_mesh_half_raised" : 89,
       "scifi_nodes:slope_bluetile_half_raised" : 84,
       "scifi_nodes:slope_dent" : 6,
@@ -83,7 +85,9 @@
       "scifi_nodes:slope_white_outer_cut" : 32,
       "scifi_nodes:slope_whitetile" : 18,
       "scifi_nodes:slope_whitetile_inner" : 24,
+      "scifi_nodes:slope_whitetile_inner_cut" : 97,
       "scifi_nodes:slope_whitetile_outer" : 25,
+      "scifi_nodes:slope_whitetile_outer_cut" : 98,
       "scifi_nodes:stair_doomwall3" : 54,
       "scifi_nodes:stair_pplblk" : 63,
       "scifi_nodes:stair_pplblk_outer" : 67,
@@ -98,7 +102,7 @@
       "scifi_nodes:whitetile" : 17,
       "signs_road:blue_sign" : 92
    },
-   "size" : 43106,
+   "size" : 165212,
    "uid" : "12c727f1-e27e-4019-8457-163ac46e2fda",
    "version" : 2
 }

@@ -17,6 +17,7 @@ stellar.register_system("helios", {
         },{
             key = "helios_3",
             name = "Helios 3",
+            teleporter = {x=1006, y=985, z=15},
             position = {x=1.414, z=-1.414},
             texture = "default_stone.png",
             size = 0.5,
