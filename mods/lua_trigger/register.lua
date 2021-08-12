@@ -8,6 +8,7 @@ end
 if minetest.get_modpath("scifi_nodes") then
     lua_trigger.register_node("scifi_nodes:white2")
     lua_trigger.register_node("scifi_nodes:white")
+    lua_trigger.register_node("scifi_nodes:ppllght")
 end
 
 lua_trigger.register_trigger("debug", function(pos, channel, msg)
