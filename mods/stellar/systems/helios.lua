@@ -2,23 +2,24 @@
 stellar.register_system("helios", {
     name = "Helios",
     rings = {
+        { radius = 2 },
         { radius = 4, color = "#00FF00"},
         { radius = 6 },
         { radius = 2, position = {x=0, z=6} }
     },
-    skybox = {
-        "sky_pos_z.png",
-        "sky_neg_z.png^[transformR180",
-        "sky_neg_y.png^[transformR270",
-        "sky_pos_y.png^[transformR270",
-        "sky_pos_x.png^[transformR270",
-        "sky_neg_x.png^[transformR90"
-    },
+    skybox = "space",
     planets = {
         {
             texture = "default_lava.png",
             position = {x=0, z=0},
             size = 1,
+            automatic_rotate = 0.1
+        },{
+            key = "helios_3",
+            name = "Helios 3",
+            position = {x=1.414, z=-1.414},
+            texture = "default_stone.png",
+            size = 0.5,
             automatic_rotate = 0.1
         },{
             key = "helios_2",

@@ -1,8 +1,8 @@
 {
-   "mapblock_count" : 98,
+   "mapblock_count" : 99,
    "metadata_count" : 6,
-   "mtime" : 1628748752,
-   "next_id" : 94,
+   "mtime" : 1628755821,
+   "next_id" : 95,
    "node_mapping" : {
       "air" : 1,
       "default:chest" : 44,
@@ -19,6 +19,7 @@
       "default:steelblock_letter_ru" : 76,
       "default:steelblock_letter_su" : 69,
       "default:steelblock_letter_yu" : 74,
+      "default:stone" : 94,
       "factory_bridges:a05" : 55,
       "factory_bridges:a09" : 56,
       "factory_bridges:b00" : 37,
@@ -97,7 +98,7 @@
       "scifi_nodes:whitetile" : 17,
       "signs_road:blue_sign" : 92
    },
-   "size" : 43025,
+   "size" : 43106,
    "uid" : "12c727f1-e27e-4019-8457-163ac46e2fda",
    "version" : 2
 }
