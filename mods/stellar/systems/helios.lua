@@ -35,6 +35,7 @@ stellar.register_system("helios", {
             size = 0.7,
             automatic_rotate = 0.7
         },{
+            key = "uv_station",
             name = "UV Station",
             teleporter = {x=1018, y=1, z=8},
             position = {x=2, z=6},

@@ -15,7 +15,7 @@ function stellar.get_ship_status()
 
     if not status then
         status = {
-            planet = "helios_prime",
+            planet = "uv_station",
             system = "helios",
             power = 10, -- GWh
             power_max = 50
