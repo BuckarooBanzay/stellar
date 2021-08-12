@@ -14,4 +14,5 @@ State: **WIP**
 
 ## License
 
-* `menu/icon.png?` CC-BY 3.0 https://game-icons.net/1x1/lorc/cross-flare.html
+* `menu/icon.png` CC-BY 3.0 https://game-icons.net/1x1/lorc/cross-flare.html
+* For everything else: `readme.md` or `LICENSE` in the `mods/*` folders
