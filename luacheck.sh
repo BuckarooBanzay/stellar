@@ -2,7 +2,7 @@
 
 set -e
 
-for modname in lua_trigger scene holodeck stellar integration_test
+for modname in lua_trigger scene holodeck stellar stellar_planets integration_test
 do
     sh -c "cd mods/${modname} && luacheck ."
 done
