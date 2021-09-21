@@ -26,7 +26,3 @@ function stellar_planets.generate_planet_name()
     end
     return prefixes[math.random(#prefixes)] .. " " .. suffix
 end
-
-for i=0,50 do
-    print(stellar_planets.generate_planet_name())
-end
