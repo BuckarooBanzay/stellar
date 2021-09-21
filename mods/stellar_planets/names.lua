@@ -1,5 +1,5 @@
 local MP = minetest.get_modpath(minetest.get_current_modname())
-
+-- math.randomseed(os.time())
 
 -- get all lines from a file, returns an empty
 -- list/table if the file does not exist
