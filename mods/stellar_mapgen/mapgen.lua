@@ -1,6 +1,7 @@
 
 local c_stone = minetest.get_content_id("stellar_nodes:stone")
 local c_water = minetest.get_content_id("stellar_nodes:water_source")
+local c_border = minetest.get_content_id("stellar_nodes:border")
 
 -- basic planet height noise
 local height_params = {
@@ -18,11 +19,69 @@ local height_perlin
 -- reuse maps
 local height_perlin_map = {}
 
+local function is_border_mapblock(mapblock_pos, pod_pos)
+    local minp, maxp = stellar.pod_to_pos(pod_pos)
+    local min_mapblock = stellar.pos_to_mapblock(vector.add(minp, 16*10))
+    local max_mapblock = stellar.pos_to_mapblock(vector.subtract(maxp, 16*10))
+
+    return mapblock_pos.x < min_mapblock.x or
+        mapblock_pos.x > max_mapblock.x or
+        mapblock_pos.y < min_mapblock.y or
+        mapblock_pos.y > max_mapblock.y or
+        mapblock_pos.z < min_mapblock.z or
+        mapblock_pos.z > max_mapblock.z
+end
+
+local function draw_border(data, area, _, minp, maxp)
+    for z=minp.z,maxp.z do
+    for x=minp.x,maxp.x do
+    for y=minp.y,maxp.y do
+        local index = area:index(x,y,z)
+        data[index] = c_border
+    end
+    end
+    end
+end
+
+local function draw_terrain(data, area, pod_pos, minp, maxp)
+    local pod_minp, pod_maxp = stellar.pod_to_pos(pod_pos)
+    local pod_height = pod_maxp.y - pod_minp.y
+
+    local side_length = maxp.x - minp.x + 1
+	local map_lengths_xyz = {x=side_length, y=side_length, z=side_length}
+
+    height_perlin = height_perlin or minetest.get_perlin_map(height_params, map_lengths_xyz)
+	height_perlin:get_2d_map_flat({x=minp.x, y=minp.z}, height_perlin_map)
+
+    local perlin_index = 1
+
+    for z=minp.z,maxp.z do
+    for x=minp.x,maxp.x do
+        local height_perlin_factor = math.min(1, math.abs( height_perlin_map[perlin_index] * 0.1 ) )
+        local pod_min_terrain_height = pod_minp.y + (pod_height * 0.8)
+        local terrain_height = pod_height * 0.2
+
+        local pod_terrain_height_rel = height_perlin_factor * terrain_height
+        local pod_terrain_height = pod_terrain_height_rel + pod_min_terrain_height
+        local pod_water_height = pod_min_terrain_height + 20
+
+        for y=minp.y,maxp.y do
+            local index = area:index(x,y,z)
+            if y < pod_terrain_height then
+                data[index] = c_stone
+            elseif y < pod_water_height then
+                data[index] = c_water
+            end
+        end
+        perlin_index = perlin_index + 1
+    end
+    end
+
+end
+
 local function render_mapblock(mapblock_pos)
     local minp, maxp = stellar.mapblock_to_pos(mapblock_pos)
     local pod_pos = stellar.pos_to_pod(minp)
-    local pod_minp, pod_maxp = stellar.pod_to_pos(pod_pos)
-    local pod_height = pod_maxp.y - pod_minp.y
 
     -- only draw one pod for testing
     if not vector.equals(pod_pos, {x=0, y=0, z=0}) then
@@ -35,35 +94,12 @@ local function render_mapblock(mapblock_pos)
 
     local data = manip:get_data()
 
-	local side_length = maxp.x - minp.x + 1
-	local map_lengths_xyz = {x=side_length, y=side_length, z=side_length}
-
-    height_perlin = height_perlin or minetest.get_perlin_map(height_params, map_lengths_xyz)
-	height_perlin:get_2d_map_flat({x=minp.x, y=minp.z}, height_perlin_map)
-
-    local perlin_index = 1
-
-    for z=minp.z,maxp.z do
-        for x=minp.x,maxp.x do
-            local height_perlin_factor = math.min(1, math.abs( height_perlin_map[perlin_index] * 0.1 ) )
-            local pod_min_terrain_height = pod_minp.y + (pod_height * 0.8)
-            local terrain_height = pod_height * 0.2
-
-            local pod_terrain_height_rel = height_perlin_factor * terrain_height
-            local pod_terrain_height = pod_terrain_height_rel + pod_min_terrain_height
-            local pod_water_height = pod_min_terrain_height + 20
-
-            for y=minp.y,maxp.y do
-                local index = area:index(x,y,z)
-                if y < pod_terrain_height then
-                    data[index] = c_stone
-                elseif y < pod_water_height then
-                    data[index] = c_water
-                end
-            end
-            perlin_index = perlin_index + 1
-        end
+    if is_border_mapblock(mapblock_pos, pod_pos) then
+        draw_border(data, area, pod_pos, minp, maxp)
+    else
+        draw_terrain(data, area, pod_pos, minp, maxp)
     end
+
 
     manip:set_data(data)
 	manip:write_to_map()
