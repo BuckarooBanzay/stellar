@@ -6,7 +6,7 @@ function stellar_planets.get_planet(pod_pos)
     return planets[pod_hash]
 end
 
-local function generate_planet(pod_pos)
+local function generate_planet()
     local planet = {}
     -- TODO
     return planet
