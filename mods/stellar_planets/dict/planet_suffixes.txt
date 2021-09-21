@@ -1,1 +1,6 @@
-Prime,2,3,Alpha
+Prime
+2
+3
+N
+X
+Alpha

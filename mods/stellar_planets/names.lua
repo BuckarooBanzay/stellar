@@ -1,22 +1,32 @@
 local MP = minetest.get_modpath(minetest.get_current_modname())
 
-local function readvalues(filename)
-	local file, err = io.open(filename,"r")
-	if file then
-		local txt = file:read("*a")
-		local result = {}
-		for entry in string.gmatch(txt, "([^,]+)") do
-			table.insert(result, entry)
-		end
-		return result
-	else
-		error("read error", err)
-	end
+
+-- get all lines from a file, returns an empty
+-- list/table if the file does not exist
+-- https://stackoverflow.com/questions/11201262/how-to-read-data-from-a-file-in-lua
+local function lines_from(file)
+    local lines = {}
+    for line in io.lines(file) do
+        lines[#lines + 1] = line
+    end
+    return lines
 end
 
-local prefixes = readvalues(MP .. "/dict/planet_prefixes.txt")
-local suffixes = readvalues(MP .. "/dict/planet_suffixes.txt")
+local prefixes = lines_from(MP .. "/dict/planet_prefixes.txt")
+local suffixes = lines_from(MP .. "/dict/planet_suffixes.txt")
 
 function stellar_planets.generate_planet_name()
-    return prefixes[math.random(#prefixes)] .. " " .. suffixes[math.random(#suffixes)]
+    local suffix
+    if math.random(5) == 5 then
+        -- number+letter suffix
+        suffix = math.random(999) .. string.char(math.random(25)+65)
+    else
+        -- suffix from a list
+        suffix = suffixes[math.random(#suffixes)]
+    end
+    return prefixes[math.random(#prefixes)] .. " " .. suffix
+end
+
+for i=0,50 do
+    print(stellar_planets.generate_planet_name())
 end
